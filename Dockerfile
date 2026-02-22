@@ -42,14 +42,10 @@ RUN cd /biostools/deark && \
 	make -j `nproc`
 
 # Create final image.
-FROM debian:trixie
+FROM python:3.14-alpine
 
 # Install runtime dependencies.
-RUN sed -i -e 's/Components: main/Components: main contrib non-free/' /etc/apt/sources.list.d/debian.sources &&\
-	apt-get update && \
-	DEBIAN_FRONTEND=noninteractive apt-get install -y python3 python3-pip pip p7zip-full p7zip-rar innoextract unshield qemu-system-i386 && \
-	apt-get clean && \
-	rm -rf /var/lib/apt/lists
+RUN apk add --update --no-cache p7zip innoextract unshield qemu-system-i386
 
 # Copy repository contents from the intermediary image.
 COPY --from=builder /biostools /biostools
