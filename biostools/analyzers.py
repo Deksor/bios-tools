@@ -132,7 +132,7 @@ class Analyzer:
 		"""Returns True if the given file's strings should be analyzed."""
 		return len(self._check_list) > 0
 
-	def can_handle(self, file_path, file_data, header_data):
+	def can_handle(self, file_path, file_data, header_data) -> bool:
 		"""Returns True if this analyzer can handle the given file data.
 		   header_data contains data from the :header: flag file, or
 		   None if no such file exists."""

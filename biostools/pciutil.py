@@ -45,7 +45,7 @@ clean_device_abbr = [
 	('Host Bus Adapter', 'HBA'),
 	('Host[- ]Controller', 'HC'), # dash = 1106:3104
 	('Input/Output', 'I/O'),
-	('Integrated ([^\s]+) (?:Graphics|GPU)', '\\2 iGPU'), # VIA CLE266
+	(r'Integrated ([^\s]+) (?:Graphics|GPU)', '\\2 iGPU'), # VIA CLE266
 	('Integrated (?:Graphics|GPU)', 'iGPU'),
 	('([0-9]) (lane|port)', '\\2-\\3'),
 	('Local Area Network', 'LAN'),
